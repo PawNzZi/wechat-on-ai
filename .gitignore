@@ -1,0 +1,18 @@
+# PyInstaller generated folders
+build/
+dist/
+
+# Logs folder
+logs/
+
+# Python virtual environment
+venv/
+
+# Configuration file (not to be committed)
+config.json
+
+# Python cache directories
+__pycache__/
+
+# IDE specific files (if any, based on your .idea folder)
+.idea/

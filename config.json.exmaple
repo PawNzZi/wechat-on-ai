@@ -1,0 +1,15 @@
+{
+  "wechat_nickname": "", // 微信昵称
+  "monitor_user":["",""], // 监控用户
+  "llm":{ "base_url":"",// 大模型地址
+          "api_key":"",// 大模型key
+          "model":"",// 大模型名称
+          "max_token":8000,// 大模型最大token
+          "system_prompt":""// 大模型系统提示词
+          },
+ 
+  "ml":{  "base_url":"",
+          "api_key":"",
+          "model":""
+        }
+}
