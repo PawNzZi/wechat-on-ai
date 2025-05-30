@@ -13,23 +13,22 @@
 1.  **RPA 模拟操作**：基于 `wxauto` 开发，通过模拟人工图形界面操作（RPA）方式与微信进行交互，有效降低因自动化操作导致的账号封禁风险（不活跃账号仍可能增加风险）。
 2.  **智能文本对话**：支持与微信好友进行文本对话，并能智能解析和合并转发的聊天记录，确保对话内容的完整性与连贯性。
 
-### 项目架构
+## 项目架构
 
-以下是本项目主要文件及其功能：
+本项目的文件结构清晰，各模块职责明确，便于理解和维护：
 
-*   <mcfile name=".gitignore" path="e:\download\wechatbot\.gitignore"></mcfile>: Git 版本控制忽略文件，用于指定哪些文件和目录不应被 Git 跟踪。
-*   <mcfolder name="auto" path="e:\download\wechatbot\auto"></mcfolder>/
-    *   <mcfile name="client.py" path="e:\download\wechatbot\auto\client.py"></mcfile>: 微信自动化客户端的核心逻辑，负责微信的登录、消息监听、消息发送以及与大模型的交互。
-*   <mcfile name="config.json.exmaple" path="e:\download\wechatbot\config.json.exmaple"></mcfile>: 配置文件示例，用户需要将其复制并重命名为 `config.json`，然后填入自己的配置信息。
-*   <mcfolder name="llm" path="e:\download\wechatbot\llm"></mcfolder>/
-    *   <mcfile name="llm.py" path="e:\download\wechatbot\llm\llm.py"></mcfile>: 大语言模型（LLM）的接口封装，负责与 OpenAI 或其他 LLM 服务进行通信。
-    *   <mcfile name="ml.py" path="e:\download\wechatbot\llm\ml.py"></mcfile>: 可能包含与机器学习或特定模型相关的辅助函数或逻辑。
-*   <mcfile name="main.py" path="e:\download\wechatbot\main.py"></mcfile>: 项目的入口文件，负责初始化微信客户端、LLM 客户端，并启动消息监听和处理的线程。
-*   <mcfile name="requirements.txt" path="e:\download\wechatbot\requirements.txt"></mcfile>: 项目所需的 Python 依赖库列表，用于安装项目运行环境。
-*   <mcfolder name="utils" path="e:\download\wechatbot\utils"></mcfolder>/
-    *   <mcfile name="config.py" path="e:\download\wechatbot\utils\config.py"></mcfile>: 配置文件加载和管理模块，负责从 `config.json` 中读取配置。
-    *   <mcfile name="logger.py" path="e:\download\wechatbot\utils\logger.py"></mcfile>: 日志记录模块，用于统一管理项目的日志输出。
-*   <mcfile name="wechatbot.spec" path="e:\download\wechatbot\wechatbot.spec"></mcfile>: PyInstaller 的打包配置文件，用于将 Python 项目打包成可执行文件（exe）。
+-   `.gitignore`: Git版本控制忽略文件配置，确保不提交不必要的文件。
+-   `README.md`: 项目说明文档，包含项目介绍、安装、使用等指南。
+-   `auto/client.py`: 微信客户端自动化操作模块，封装了微信消息监听和动作执行等功能。
+-   `config.json.example`: 配置文件示例，用于配置微信和AI相关的参数。
+-   `llm/llm.py`: 大语言模型交互模块，负责与OpenAI等大语言模型进行通信。
+-   `llm/ml.py`: 机器学习相关代码，可能包含模型训练或数据处理逻辑。
+-   `main.py`: 项目主入口，负责初始化、启动微信客户端和消息循环处理。
+-   `requirements.txt`: Python依赖包清单，记录项目所需的所有库及其版本。
+-   `utils/config.py`: 配置管理工具，用于加载和管理项目配置。
+-   `utils/logger.py`: 日志记录工具，提供统一的日志输出功能。
+-   `wechatbot.spec`: PyInstaller打包配置文件，用于将项目打包成可执行文件。
+
 
 ## 开发步骤
 
