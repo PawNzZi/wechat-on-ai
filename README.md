@@ -35,7 +35,7 @@
 1.  **克隆项目到本地**：
 
     ```bash
-    git clone <你的项目仓库地址>
+    git clone https://github.com/PawNzZi/wechat-on-ai.git
     cd wechatbot
     ```
 
