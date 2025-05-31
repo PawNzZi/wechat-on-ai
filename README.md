@@ -70,18 +70,14 @@
 
 ## 打包步骤
 
-1.  **运行 `wechatbot.spec` 文件生成 exe**：
+1.  **运行 `wechat-on-ai.spec` 文件生成 exe**：
 
     ```bash
-    pyinstaller wechatbot.spec
-    ```
-    如果需要生成单文件 `exe`，可以使用：
-    ```bash
-    pyinstaller --onefile wechatbot.spec
+    pyinstaller wechat-on-ai.spec
     ```
 
 2.  **将自己的 `config.json` 文件放置同一目录下**：
-    打包完成后，生成的 `wechatbot.exe` 文件会在 `dist` 目录下。请将你的 `config.json` 文件复制到 `wechatbot.exe` 所在的目录，以便程序能够正确读取配置。
+    打包完成后，生成的 `wechat-on-ai.exe` 文件会在 `dist` 目录下。请将你的 `config.json` 文件复制到 `wechat-on-ai.exe` 所在的目录，以便程序能够正确读取配置。
 
 ## 使用指南
 
@@ -107,4 +103,4 @@
 
 *   **运行可执行文件 (无需 Python 环境)**：
 
-    导航至 `dist` 目录下，双击 `wechatbot.exe` 即可启动程序。
+    导航至 `dist` 目录下，双击 `wechat-on-ai.exe` 即可启动程序。

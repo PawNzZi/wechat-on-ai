@@ -6,13 +6,9 @@ block_cipher = None
 
 a = Analysis(
     ['main.py'],
-    pathex=['e:\\download\\wechatbot'],
+    pathex=['E:\\workspace\\wechat-on-ai'],
     binaries=[],
-    datas=[
-        ('e:\\download\\wechatbot\\llm', 'llm'), # 包含llm目录及其内容
-        ('e:\\download\\wechatbot\\utils', 'utils'), # 包含utils目录及其内容
-
-    ],
+    datas=[],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -32,7 +28,7 @@ exe = EXE(
     a.zipfiles,
     a.datas,
     [],
-    name='wechatbot',
+    name='wechat-on-ai',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -45,10 +41,9 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
+    as_onefile=False
 )
 
-
-# 如果你希望生成一个单文件exe，请取消注释下面的COLLECTION部分
 coll = COLLECT(
     exe,
     a.binaries,
@@ -56,6 +51,6 @@ coll = COLLECT(
     a.datas,
     strip=False,
     upx=True,
-    upx_exclude=[],
-    name='wechatbot'
+    name='wechat-on-ai',
+    as_onefile=False
 )
