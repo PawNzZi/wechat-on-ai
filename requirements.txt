@@ -1,4 +1,11 @@
-openai
-wxauto
+openai~=1.82.1
 dashscope
 pyinstaller
+uiautomation
+pillow~=11.2.1
+pywin32~=310
+psutil~=7.0.0
+pyperclip~=1.9.0
+typing_extensions~=4.13.2
+comtypes~=1.4.11
+anytree

@@ -4,7 +4,7 @@ from utils.logger import logger
 import random
 import time
 import threading
-
+import re
 
 class WeChatClient:
     def __init__(self):
@@ -33,23 +33,25 @@ class WeChatClient:
     # 监听消息
     def get_listen_message(self):
         logger.info("Starting to listen for messages...")
-        
+
         wait = 3  # 设置3秒查看一次是否新消息
         while True:
             try:
                 # logger.info("Starting ")
                 msgs = self.wx.GetListenMessage()
+                # print(msgs)
                 for chat in msgs:
                     one_msgs = msgs.get(chat)  # 获取消息内容
                     for msg in one_msgs:
                         if msg.type == 'sys':
                             logger.info(f'【系统消息】{msg.content}')
                         elif msg.type == 'friend':
-                            self.processing_message_event.set()  # 收到好友消息，设置事件，暂停do_something
-                            sender = msg.sender  # 这里可以将msg.sender改为msg.sender_remark，获取备注名
+                            # self.processing_message_event.set()  # 收到好友消息，设置事件，暂停do_something
+                            # sender = msg.sender  # 这里可以将msg.sender改为msg.sender_remark，获取备注名
                             # logger.info(f'<{sender.center(10, "-")}>：{msg.content}')
                             if msg.content == '[聊天记录]':
                                 content_list = msg.parse()
+                                # print(content_list)
                                 formatted_messages = []
                                 for item in content_list:
                                     if item[0] == self.nick_name:
@@ -57,6 +59,12 @@ class WeChatClient:
                                     else:
                                         sender = item[0]
                                     message = item[1]
+                                    match = re.match(r'^(.*?)\n\s*-{3,}\s*\n「.*?：.*?」$', message, re.DOTALL)
+                                    if match:
+                                        message = match.group(1)  # 只取第一部分
+                                        logger.info("截取后的消息内容：", message)
+                                    else:
+                                        logger.info("未匹配到特殊格式，保持原样：", message)
                                     # 在消息内容后面添加句号
                                     formatted_messages.append(f"{sender}：{message}。")
                                 message = "\n".join(formatted_messages)
@@ -71,8 +79,8 @@ class WeChatClient:
                             except Exception as llm_e:
                                 logger.error(f"Error calling LLM: {llm_e}")
                                 msg.quote(f"对不起，我暂时无法回答您的问题。{llm_e}")
-                                
-                            self.processing_message_event.clear()  # 处理完毕，清除事件，恢复do_something
+
+                            # self.processing_message_event.clear()  # 处理完毕，清除事件，恢复do_something
                         elif msg.type == 'self':
                             logger.info(f'<{msg.sender.center(10, "-")}>：{msg.content}')
                         elif msg.type == 'time':
