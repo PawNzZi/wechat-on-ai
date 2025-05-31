@@ -62,9 +62,9 @@ class WeChatClient:
                                     match = re.match(r'^(.*?)\n\s*-{3,}\s*\n「.*?：.*?」$', message, re.DOTALL)
                                     if match:
                                         message = match.group(1)  # 只取第一部分
-                                        logger.info("截取后的消息内容：", message)
+                                        logger.info(f"截取后的消息内容：{message}")
                                     else:
-                                        logger.info("未匹配到特殊格式，保持原样：", message)
+                                        logger.info(f"未匹配到特殊格式，保持原样：{message}")
                                     # 在消息内容后面添加句号
                                     formatted_messages.append(f"{sender}：{message}。")
                                 message = "\n".join(formatted_messages)

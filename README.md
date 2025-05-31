@@ -27,7 +27,7 @@
 -   `requirements.txt`: Python依赖包清单，记录项目所需的所有库及其版本。
 -   `utils/config.py`: 配置管理工具，用于加载和管理项目配置。
 -   `utils/logger.py`: 日志记录工具，提供统一的日志输出功能。
--   `wechatbot.spec`: PyInstaller打包配置文件，用于将项目打包成可执行文件。
+-   `wechat-on-ai.spec`: PyInstaller打包配置文件，用于将项目打包成可执行文件。
 
 
 ## 开发步骤
@@ -36,7 +36,7 @@
 
     ```bash
     git clone https://github.com/PawNzZi/wechat-on-ai.git
-    cd wechatbot
+    cd wechat-on-ai
     ```
 
 2.  **将 `config.json.exmaple` 文件改名为 `config.json`**：
@@ -89,7 +89,7 @@
 
 ### 2. 配置 `config.json`
 
-请仔细配置 `config.json` 文件。确保所有必要的参数（如 API 密钥、AI 行为设定等）均已正确填写。该文件应放置在 `main.py` 脚本或 `wechatbot.exe` 可执行文件的同级目录下，以便程序能够正确读取。
+请仔细配置 `config.json` 文件。确保所有必要的参数（如 API 密钥、AI 行为设定等）均已正确填写。该文件应放置在 `main.py` 脚本或 `wechat-on-ai.exe` 可执行文件的同级目录下，以便程序能够正确读取。
 
 ### 3. 启动程序
 
